@@ -1,4 +1,4 @@
-# Embedding Server
+# Embeddings Server
 
 This is a basic embedding server using [llama-cpp-python](https://github.com/abetlen/llama-cpp-python).
 
