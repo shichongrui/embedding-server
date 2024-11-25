@@ -26,3 +26,41 @@ You can use any GGUF model on HuggingFace by setting the following two environme
 REPO_ID=<hugging-face-repo-id>
 FILE_NAME=<quantized-file-name-to-use>
 ```
+
+## Development
+
+1. If you don't have a virtualenv yet, create one
+```bash
+python -m venv .venv
+```
+2. Activate the virutalenv
+```bash
+source .venv/bin/activate
+```
+3. Install dependencies
+```bash
+pip install -r 
+```
+4. Start the dev server
+```bash
+fastapi run main.py
+```
+
+## Deployment
+1. Generate a Github API token
+2. Log in to ghcr.io
+```bash
+echo <token> | docker login ghcr.io -u shichongrui --password-stdin
+```
+3. Build the image
+```bash
+docker build -t embeddings-server .
+```
+4. Tag the image
+```bash
+docker tag embeddings-server ghcr.io/shichongrui/embeddings-server:latest
+```
+5. Push the image
+```bash
+docker push ghcr.io/shichongrui/embeddings-server:latest
+```
