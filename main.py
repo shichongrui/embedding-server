@@ -10,7 +10,7 @@ file_name = os.environ.get('FILE_NAME', 'nomic-embed-text-v1.5.Q4_K_M.gguf')
 @asynccontextmanager
 async def lifespan(app: FastAPI):
 
-    app.state.model = llama_cpp.Llama.from_pretrained(repo_id=model_name, filename='nomic-embed-text-v1.5.Q4_K_M.gguf', n_gpu_layers=0, embedding=True)
+    app.state.model = llama_cpp.Llama.from_pretrained(repo_id=model_name, filename=file_name, n_gpu_layers=0, embedding=True)
     yield
 
 app = FastAPI(lifespan=lifespan)
